@@ -61,7 +61,6 @@ def part_b(content, preamble_length):
             count += content[i+j]
         if count == goal:
             nums = sorted(content[i:i+j+1])
-            print(nums)
             return nums[0] + nums[-1]
 
 
