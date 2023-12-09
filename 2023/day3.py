@@ -1,5 +1,4 @@
 from aocd import data
-from functools import reduce
 from typing import List
 
 
