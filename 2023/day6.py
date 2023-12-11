@@ -1,4 +1,3 @@
-from typing import List
 from aocd import data
 import numpy as np
 
