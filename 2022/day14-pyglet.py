@@ -2,6 +2,8 @@ import math
 import time
 from typing import Optional
 from aocd import data
+import pyglet
+from pyglet import shapes
 
 
 ####################
@@ -20,6 +22,22 @@ test_b_answer = "93"
 ####################
 
 SPAWN_POINT = (500, 0)
+# creating a window
+window = pyglet.window.Window(1000, 1000, "Falling Sand")
+
+# creating a batch object
+batch = pyglet.graphics.Batch()
+
+shapes.Circle(100, 100, 100, color=(255,255,255), batch=batch)
+
+# window draw event
+@window.event
+def on_draw():
+    # clear the window
+    window.clear()
+    # draw the batch
+    batch.draw()
+
 
 class SandOverflow(Exception):
     pass
@@ -46,6 +64,14 @@ def draw(grid: list[list[str]], draw_start: Optional[tuple[int, int]] = None, dr
     print('-----------------------')
 
 
+def update_pyglet(grid: list[list[str]]) -> None:
+    size = 10
+    for y in range(len(grid)):
+        for x in range(len(grid[0])):
+            if grid[y][x] == '#':
+                shapes.Circle(x*size, y*size, size, batch=batch)
+
+    
 def convert_wall_to_points(wall: list[tuple[int, int]]) -> list[tuple[int, int]]:
     points = []
     
@@ -146,7 +172,6 @@ def update(grid: list[list[str]], falling_sand: list[tuple[int, int]]) -> None:
             falling_sand.append((500,0))
 
 
-@profile
 def part_a(content):
     walls = parse_walls_from_input(content)
     
@@ -164,8 +189,15 @@ def part_a(content):
 
     while True:
         update(grid, falling_sand)
+        update_pyglet(grid)
         # draw(grid, draw_start, draw_stop)
         # time.sleep(0.01)
+        pyglet.clock.tick()
+        for window in pyglet.app.windows:
+            window.switch_to()
+            window.dispatch_events()
+            window.dispatch_event('on_draw')
+            window.flip()
 
         if falling_sand and falling_sand[0][1] > max[1]:
             break
@@ -179,7 +211,6 @@ def part_a(content):
     return count_sand - 1  # don't want to count the falling sand
 
 
-@profile
 def part_b(content):
     walls = parse_walls_from_input(content)
     
@@ -228,3 +259,5 @@ if __name__ == "__main__":
     print(f"Test B: {test_b}")
     print(f"Part B answer: {part_b(content)}")
     assert str(test_b) == test_b_answer
+
+    pyglet.app.run()
