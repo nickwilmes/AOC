@@ -141,7 +141,7 @@ def part_b(content: str):
 
     # sanity check that only 2 neighbors exist
     if len(neighbors) != 2 and len(possible_starts) != 1:
-        raise Exception(f"incorrect number of {neighbors=} or {possible_starts=}")
+        raise Exception(f"wrong number of {neighbors=} or {possible_starts=}")
 
     # replace start with correct symbol
     map[start[1]][start[0]] = possible_starts
