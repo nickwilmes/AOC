@@ -20,7 +20,6 @@ test_b_data = test_data
 test_a_answer = "18"
 test_b_answer = "9"
 
-
 ####################
 # Puzzle solutions
 ####################
@@ -134,10 +133,10 @@ def part_b(grid: list[str]):
 if __name__ == "__main__":
     content = data
 
-    # test_a = part_a(test_data.split())
-    # print(f"Test A: {test_a}")
-    # print(f"Part A answer: {part_a(content.split())}")
-    # assert str(test_a) == test_a_answer
+    test_a = part_a(test_data.split())
+    print(f"Test A: {test_a}")
+    print(f"Part A answer: {part_a(content.split())}")
+    assert str(test_a) == test_a_answer
 
     test_b = part_b(test_b_data.split())
     print(f"Test B: {test_b}")
