@@ -1,4 +1,5 @@
 from aocd import data
+from helpers import Grid, parse_grid
 
 
 ####################
@@ -21,19 +22,11 @@ test_a_answer = "41"
 test_b_answer = "6"
 
 
-Grid = list[list[str]]
 UP, DOWN, LEFT, RIGHT = "^", "V", "<", ">"
 DIRECTIONS = [UP, DOWN, LEFT, RIGHT]
 
 class LoopException(Exception):
     pass
-
-
-def parse_grid(input: str) -> Grid:
-    grid = []
-    for row in input.split():
-        grid.append([c for c in row])
-    return grid
 
 
 def find_starting_location(grid: Grid) -> tuple[int, int]:
