@@ -41,8 +41,6 @@ def find_starting_location(grid: Grid) -> tuple[int, int]:
         for x in range(len(grid[y])):
             if grid[y][x] in DIRECTIONS:
                 return x, y
-    
-    import pdb; pdb.set_trace()
 
 
 def inside_grid(x: int, y: int, grid: Grid) -> bool:
@@ -79,8 +77,6 @@ def get_next_step(x: int, y: int, grid: Grid, memory: dict[tuple[int, int, str],
             return get_next_step(x, y, grid, memory)
         else:
             return x+1, y, direction
-    
-    import pdb; pdb.set_trace()
 
 
 def draw_path(grid: Grid) -> Grid:
