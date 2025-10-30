@@ -85,37 +85,6 @@ def format_disk_b(blocks: list[str]) -> list[str]:
                 break
         
         id = str(int(id)-1)
-        
-
-    # j1, j2 = len(new_blocks)-1, len(new_blocks)-1
-    # while j2 > 0:
-    #     if new_blocks[j1] == '.':
-    #         j1 -= 1
-    #         j2 = j1
-    #         continue
-    #     if new_blocks[j2] == new_blocks[j1]:
-    #         j2 -= 1
-    #         continue
-
-    #     size = j1 - j2
-
-    #     i1, i2 = 0, 0
-    #     while i2 < j2:
-    #         if new_blocks[i1] != '.': # find start of free space
-    #             i1 += 1
-    #             i2 = i1
-    #             continue
-    #         space = i2 - i1
-    #         if new_blocks[i2] == '.' and space < size: # check size of free space
-    #             i2 += 1
-    #             continue
-    #         if  space < size:
-    #             i1 = i2
-    #         else:
-    #             new_blocks[i1:i2], new_blocks[j2+1:j1+1] = new_blocks[j2+1:j1+1], new_blocks[i1:i2]
-    #             break
-    #     breakpoint()
-    #     j1 = j2
 
     return new_blocks
 
