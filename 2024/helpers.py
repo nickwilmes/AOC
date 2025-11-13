@@ -1,3 +1,6 @@
+import os
+
+
 Grid = list[list[str]]
 Position = tuple[int, int]
 
@@ -30,3 +33,14 @@ def inside_grid(pos: Position, grid: Grid) -> bool:
 
 def get_velocity(start: Position, end: Position) -> tuple[int, int]:
     return (end[0]-start[0], end[1]-start[1])
+
+
+def print_grid(grid: Grid) -> None:
+    for row in grid:
+        print(''.join(row))
+
+
+def clear_screen():
+    # Clears screen based on OS
+    os.system('cls' if os.name == 'nt' else 'clear')
+

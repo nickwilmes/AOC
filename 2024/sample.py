@@ -1,4 +1,5 @@
 from aocd import data
+from tqdm import tqdm
 
 
 ####################
@@ -30,10 +31,10 @@ if __name__ == "__main__":
 
     test_a = part_a(test_data)
     print(f"Test A: {test_a}")
-    print(f"Part A answer: {part_a(content)}")
     assert str(test_a) == test_a_answer
+    print(f"Part A answer: {part_a(content)}")
 
     # test_b = part_b(test_data)
     # print(f"Test B: {test_b}")
-    # print(f"Part B answer: {part_b(content)}")
     # assert str(test_b) == test_b_answer
+    # print(f"Part B answer: {part_b(content)}")
