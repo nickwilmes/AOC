@@ -4,6 +4,9 @@ import os
 Grid = list[list[str]]
 Position = tuple[int, int]
 
+UP, DOWN, LEFT, RIGHT = ['^', 'v', '<', '>']
+
+
 
 def parse_grid(input: str) -> Grid:
     grid = []
